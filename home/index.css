@@ -33,7 +33,7 @@ h1.title {
     border-style:solid;
     border-color: blueviolet;
 }
-button.link {
+.button {
     margin: 5px;
     top: 380px;
     background-color: rgb(182, 182, 255);
