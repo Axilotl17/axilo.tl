@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <link rel="stylesheet" type="text/css" href="howto.css">
+    <link rel="icon" type="image/x-icon" href="resources/favico.ico">
+    <title>Squwordle</title>
+    <script src="./resources/words.js"></script> 
+    <script src="./howto.js"></script> 
+    </head>
+    <body>
+        <div id = "title">
+            <h2 class = "title">How to play:</h2>
+        </div>
+        <div id = "body">
+            <img onclick = "window.location.href='./index.html'" id = "back" src="./resources/back.png">  <!--from wikipedia: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Back_Arrow.svg/2048px-Back_Arrow.svg.png -->
+            <p class = "bodyText">
+                Let's say you're given a set of letters, listed below;
+            </p>
+            <p id = "example">
+                A B C D E F G
+            </p>
+            <p class = "bodyText">
+                Now, you need to input a word using ONLY these letters. try it out!
+            </p>
+            <label id = "demoLabel"></label> <br>
+            <input type = "text" id = "demoInput"> <br> <br> 
+            <p class = "bodyText">You are awarded points based on word length.</p>
+            <p class = "bodyText">And you take turns adding words.</p>
+            <p class = "bodyText">But be careful; take too long and there will be consequences!</p>
+            <p class = "bodyText">Happy playing!</p>
+        </div>
+        <div id = "footer">
+            <p>Made by Darwin Rescorla - <a href = "https://axilo.tl">axilo.tl</p>
+        </div>
+
+    </body>
+    <script>isInputWord()</script>
+</html>

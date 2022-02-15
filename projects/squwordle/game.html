@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <link rel="stylesheet" type="text/css" href="game.css">
+        <link rel="icon" type="image/x-icon" href="resources/favico.ico">
+        <title>Squwordle</title>
+    </head>
+    <body>
+        <div id = "players">
+            <p id="redPoints" class="scores">0 - Red</p>
+            <p id="bluePoints" class="scores">Blue - 0</p>
+            <p id="redTimer" class="scores">000</p>
+            <p id="blueTimer" class="scores">000</p>
+        </div>
+        <div id="setup">
+            <h3 id="setupTitle">Setup</h3>
+            <button id="start" type="button" onclick="game()">Start!</button>
+            <label id="letterCountLabel" class="setupLabel" >10 letters</label>
+            <input id="letterCount" class="setupInput" type="range" min="4" max="26" value="10" oninput="updateLabel('letterCount', ' letters')">
+            <label id="timeTotalLabel" class="setupLabel" >60 seconds</label>
+            <input id="timeTotal" class="setupInput" type="number" placeholder="60">
+        </div>
+        <div id='centerGame'>
+            <p id="countdown"></p>
+        </div>
+    </body>
+    <script src="./game.js"></script>
+</html> 

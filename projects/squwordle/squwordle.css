@@ -1,0 +1,93 @@
+h1.title {
+    text-align: center;
+    color: blue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 400%;
+}
+h3.title {
+    text-align: center;
+    color: lightblue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 200%;
+}
+p.body {
+    text-align: center;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 100%;
+}
+#iconLeft {
+    position:absolute;
+    top: 0;
+    left: 20px;
+    width: 200px;
+    height: 200px;
+}
+#iconRight {
+    position:absolute;
+    top: 0;
+    right: 20px;
+    width: 200px;
+    height: 200px;
+}
+#howToButton {
+    background-color: orange;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    width: 200px;
+    cursor:pointer;
+    margin: 5px;
+}
+button.titleButton {
+    background-color: lightgreen;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    width: 200px;
+    cursor:pointer;
+    margin: 5px;
+}
+#title {
+    position: relative;
+}
+#buttons1 {
+    margin: 5px;
+    position: absolute;
+    top: 380px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#buttons2 {
+    margin: 5px;
+    position: absolute;
+    top: 445px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#startGame {
+    top: -35px;
+    position: absolute;
+    left: -50%;
+}
+#training {  
+    top: -35px;
+    position: absolute;
+    right: -50%;
+}
+#footer {
+    position: absolute;
+    margin: 0px;
+    bottom: -25px;
+    color: black;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 100%;
+}

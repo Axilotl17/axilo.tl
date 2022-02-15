@@ -1,0 +1,54 @@
+
+h2.title {
+    text-align: center;
+    color: navy;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 300%;
+}
+#footer {
+    position: absolute;
+    margin: 0px;
+    bottom: -25px;
+    color: black;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 100%;
+}
+p.bodyText {
+    text-align: center;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 100%;
+}
+#example {
+    text-align: center;
+    color: darkblue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 115%;
+}
+label {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 100%;
+}
+input{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 10%);
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5px 10px;
+    font-size: 18px;
+  }
+#back {
+    position:absolute;
+    top: 20px;
+    left: 20px;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+}

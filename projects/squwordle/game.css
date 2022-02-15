@@ -1,0 +1,88 @@
+p.scores {
+    position: absolute;
+    top: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+}
+#redPoints {
+    left: 30px;
+    color: rgb(255, 0, 0);
+}
+#bluePoints {
+    right: 30px;
+    color: blue;
+}
+#redTimer {
+    top: 60px;
+    left: 30px;
+    color: red;
+    font-size: 40px;
+}
+#blueTimer {
+    top: 60px;
+    right: 30px;
+    color: blue;
+    font-size: 40px;
+}
+input.setupInput {
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    width: 160px;
+    transform: translate(-50%, 0%);
+}
+label.setupLabel {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    position: absolute;
+    top: 270px;
+    left: 50%;
+    transform: translate(-75px, 0%);
+}
+#timeTotal {
+    top: 370px;
+    width: 150px;
+    transform: translate(-48%, 0%);
+}
+#timeTotalLabel {
+    top: 340px;
+}
+#setup {
+    top: 10%;
+    position: absolute;
+    transform: translate(-50%, 0%);
+    left: 50%;
+    width: 500px;
+    height: 500px;
+    border-radius: 2px;
+    border: black;
+    border-style: solid;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+#setupTitle {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+}
+#start {
+    position: absolute;
+    transform: translate(-50%, 0%);
+    top: 25%;
+    left: 50%;
+    background-color: rgb(0, 220, 0);
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 40px;
+    width: 250px;
+    height: 100px;
+    cursor:pointer;
+    margin: 5px;
+}
+#countdown {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 90px;
+}
