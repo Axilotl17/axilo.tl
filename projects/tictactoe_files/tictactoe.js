@@ -1,5 +1,5 @@
-const naught = "./tictactoe/o.png"
-const cross = "./tictactoe/x.png"
+const naught = "./tictactoe_files/o.png"
+const cross = "./tictactoe_files/x.png"
 var turn = "x"
 
 var boxStatuses = [
@@ -13,6 +13,19 @@ var boxStatuses = [
     "",
     ""
 ]
+const wins = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [1, 3, 6],
+    [2, 4, 8],
+    [4, 5, 9],
+    [1, 4, 9],
+    [3, 4, 9],
+
+
+]
+
 function boxClick(index) {
     img = document.getElementById("img" + index)
     if (boxStatuses[index] == "") {
