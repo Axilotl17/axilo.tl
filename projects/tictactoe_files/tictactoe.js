@@ -17,18 +17,17 @@ const wins = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
-    [1, 3, 6],
-    [2, 4, 8],
-    [4, 5, 9],
-    [1, 4, 9],
-    [3, 4, 9],
-
-
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
 ]
+var won = false
 
 function boxClick(index) {
     img = document.getElementById("img" + index)
-    if (boxStatuses[index] == "") {
+    if (boxStatuses[index] == "" && won == false) {
         if (turn == "x") {
             img.src = cross
             turn = "o"
@@ -38,5 +37,16 @@ function boxClick(index) {
             turn = "x"
             boxStatuses[index] = "o"
         }
+        checkWin(index)
     }  
+}
+function checkWin(boxIndex) {
+    wins.forEach(function(element, index) {
+        if (element.includes(boxIndex)) {
+            if (boxStatuses[element[0]] == boxStatuses[element[1]] && boxStatuses[element[0]] == boxStatuses[element[2]]) {
+                console.log(boxStatuses[element[1]] + " won")
+                won = true
+            }
+        }
+    })
 }
