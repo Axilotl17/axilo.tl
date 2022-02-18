@@ -7,16 +7,18 @@
         <title>TicTacToe</title>
     </head>
     <body>
+        <p id = "winMsg" class="titles"></p>
+        <button id="playAgain" class="titles" onclick="clearBoard()">Play again?</button>
         <div id="game">
-            <div id="box0" class="box" onclick="boxClick(0)"><img class="statusImg" id="img0" src=""></div>
-            <div id="box1" class="box" onclick="boxClick(1)"><img class="statusImg" id="img1" src=""></div>
-            <div id="box2" class="box" onclick="boxClick(2)"><img class="statusImg" id="img2" src=""></div> <br>
-            <div id="box3" class="box" onclick="boxClick(3)"><img class="statusImg" id="img3" src=""></div>
-            <div id="box4" class="box" onclick="boxClick(4)"><img class="statusImg" id="img4" src=""></div>
-            <div id="box5" class="box" onclick="boxClick(5)"><img class="statusImg" id="img5" src=""></div> <br>
-            <div id="box6" class="box" onclick="boxClick(6)"><img class="statusImg" id="img6" src=""></div>
-            <div id="box7" class="box" onclick="boxClick(7)"><img class="statusImg" id="img7" src=""></div>
-            <div id="box8" class="box" onclick="boxClick(8)"><img class="statusImg" id="img8" src=""></div>
+            <div id="box0" class="box" onclick="boxClick(0)"><img class="statusImg" id="img0" src="" onerror="this.style.display='none'"></div>
+            <div id="box1" class="box" onclick="boxClick(1)"><img class="statusImg" id="img1" src="" onerror="this.style.display='none'"></div>
+            <div id="box2" class="box" onclick="boxClick(2)"><img class="statusImg" id="img2" src="" onerror="this.style.display='none'"></div> <br>
+            <div id="box3" class="box" onclick="boxClick(3)"><img class="statusImg" id="img3" src="" onerror="this.style.display='none'"></div>
+            <div id="box4" class="box" onclick="boxClick(4)"><img class="statusImg" id="img4" src="" onerror="this.style.display='none'"></div>
+            <div id="box5" class="box" onclick="boxClick(5)"><img class="statusImg" id="img5" src="" onerror="this.style.display='none'"></div> <br>
+            <div id="box6" class="box" onclick="boxClick(6)"><img class="statusImg" id="img6" src="" onerror="this.style.display='none'"></div>
+            <div id="box7" class="box" onclick="boxClick(7)"><img class="statusImg" id="img7" src="" onerror="this.style.display='none'"></div>
+            <div id="box8" class="box" onclick="boxClick(8)"><img class="statusImg" id="img8" src="" onerror="this.style.display='none'"></div>
         </div>
     </body>
     <footer id = "footer">

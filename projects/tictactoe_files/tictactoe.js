@@ -23,11 +23,13 @@ const wins = [
     [0, 4, 8],
     [2, 4, 6],
 ]
-var won = false
-
+var finish = false
+const winMsg = document.getElementById("winMsg")
+const playAgain = document.getElementById("playAgain")
 function boxClick(index) {
     img = document.getElementById("img" + index)
-    if (boxStatuses[index] == "" && won == false) {
+    if (boxStatuses[index] == "" && finish == false) {
+        img.style.display='block'
         if (turn == "x") {
             img.src = cross
             turn = "o"
@@ -41,12 +43,28 @@ function boxClick(index) {
     }  
 }
 function checkWin(boxIndex) {
-    wins.forEach(function(element, index) {
+    wins.forEach(function(element) {
         if (element.includes(boxIndex)) {
             if (boxStatuses[element[0]] == boxStatuses[element[1]] && boxStatuses[element[0]] == boxStatuses[element[2]]) {
-                console.log(boxStatuses[element[1]] + " won")
-                won = true
+                winMsg.innerHTML = boxStatuses[element[1]].toUpperCase() + " won!"
+                finish = true
+                winMsg.style.display='block'
+                playAgain.style.display='block'
+            } else if (!boxStatuses.includes("")) {
+                winMsg.innerHTML = "It's a draw!"
+                finish = true
+                winMsg.style.display='block'
+                playAgain.style.display='block'
             }
         }
     })
+}
+function clearBoard() {
+    for (i=0; i<=8; i++) {
+        document.getElementById("img"+i).src = ""
+        boxStatuses[i] = ""
+    }
+    finish = false
+    winMsg.style.display='none'
+    playAgain.style.display='none'
 }
