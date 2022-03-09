@@ -50,6 +50,7 @@ function checkWin(boxIndex) {
                 finish = true
                 winMsg.style.display='block'
                 playAgain.style.display='block'
+                console.log(boxStatuses[element[1]].toUpperCase() + " won!")
             } else if (!boxStatuses.includes("")) {
                 winMsg.innerHTML = "It's a draw!"
                 finish = true
