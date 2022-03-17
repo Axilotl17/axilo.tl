@@ -1,6 +1,8 @@
+
 function isWord(word) {
     let x = words.includes(word); return x 
 }
+//const wordList = JSON.parse(data)
 const words = [
 "aardvark",
 "aardwolf",
