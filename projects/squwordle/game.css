@@ -6,7 +6,7 @@ p.scores {
 }
 #redPoints {
     left: 30px;
-    color: rgb(255, 0, 0);
+    color: red;
 }
 #bluePoints {
     right: 30px;
@@ -97,4 +97,27 @@ label.setupLabel {
 }
 #redArrow {
     left: 150px;
+}
+.usedWords {
+    position: absolute;
+    top: 150px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+#redWords {
+    left: 30px;
+    color: red;
+}
+#blueWords {
+    right: 30px;
+    color: blue;
+}
+#wordInput {
+    position: absolute;
+    transform: translate(-50%, 0%);
+    top: 50%;
+    left: 50%;
+    font-size: 30px;
+    text-align: center;
+    display: none;
 }

@@ -1,4 +1,12 @@
 const timeTotal = document.getElementById('timeTotal')
+var allLetters = []
+var vowelList = ["A", "E", "I", "U", "O"]
+function makeLetters() {
+    for(var i = 65; i < 91; i++) {
+        allLetters.push(String.fromCharCode(i))
+    }
+}
+
 var gameEnd = false
 function sleep(milliseconds) {
     return new Promise(resolve => setTimeout(resolve, milliseconds));
@@ -27,18 +35,47 @@ async function countdown() {
     currentCountdown = turn
     while (gameEnd == false) {
         if (currentCountdown != turn) {
-            await sleep(3000)
+            await sleep(1500)
+            currentCountdown = turn
+
         }
-        if (turn == "red") {
-            
-        }
+        if (turn == "red" && currentCountdown == "red") {
+            redTimer.innerHTML--
+            await sleep(1000)
+        } else if (turn == "blue" && currentCountdown == "blue") {
+            blueTimer.innerHTML--
+            await sleep(1000)
+        }   
+
     }
     return
 }
+
+const redTimer = document.getElementById("redTimer")
+const blueTimer = document.getElementById("blueTimer")
+
+var redWords = []
+var blueWords = []
+
+
+function setDisplay(className, Value) {
+    var objects = document.getElementsByClassName(className);
+    for (var i=0; i < objects.length; i++) {
+        objects[i].style.display = Value;
+    }
+}
+function randNum(min, max) {
+    let x = Math.floor((max-min+1) * Math.random() + min); return x 
+}
+function generateLetters() {
+    letterList = allLetters
+    for(var i = 0; i < 26 - maxLetters; i++) {
+        letterList.splice(randNum(0, letterList.length-1), 1)
+    }
+}
 async function game() {
-    
     document.getElementById('setup').style.display = "none";
-    for (let i = 3; i != 0; i--) {
+    for (var i = 3; i != 0; i--) {
         document.getElementById('countdown').innerHTML = i
         await sleep(1000)
     }
@@ -46,15 +83,34 @@ async function game() {
     await sleep(500)
     document.getElementById('countdown').innerHTML = ""
     if (document.getElementById("timeTotal").value == "") {
-        document.getElementById("redTimer").innerHTML = 120
-        document.getElementById("blueTimer").innerHTML = 120
+        redTimer.innerHTML = 120
+        blueTimer.innerHTML = 120
     } else {
-        document.getElementById("redTimer").innerHTML = document.getElementById("timeTotal").value
-        document.getElementById("blueTimer").innerHTML = document.getElementById("timeTotal").value
+        redTimer.innerHTML = document.getElementById("timeTotal").value
+        blueTimer.innerHTML = document.getElementById("timeTotal").value
     }
     if(Math.random() > 0.5){
         turn = "red"
     } else {
         turn = "blue"
     }
+    vowelCount = 0
+    letterList = []
+    maxLetters = document.getElementById("letterCount").value
+    while(vowelCount < 2) {
+        vowelCount = 0
+        letterList = []
+        generateLetters()
+        for(var i = 0; i < vowelList.length; i++) {
+            if(letterList.includes(vowelList[i])) {
+                vowelCount++
+            }
+        }
+        console.log(letterList)
+        await sleep(50)
+
+
+    }
+//make allLetters and letterList the same thing; restate it every time with makeLetters()
+    setDisplay("gameObjects", "block")
 }
