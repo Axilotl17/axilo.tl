@@ -1,9 +1,9 @@
 const timeTotal = document.getElementById('timeTotal')
-var allLetters = []
+var letterList = []
 var vowelList = ["A", "E", "I", "U", "O"]
 function makeLetters() {
     for(var i = 65; i < 91; i++) {
-        allLetters.push(String.fromCharCode(i))
+        letterList.push(String.fromCharCode(i))
     }
 }
 
@@ -23,41 +23,69 @@ timeTotal.addEventListener("change", function(e) {
     }
 })
 function doTurn() {
-    if(turn == "red") {
-        document.getElementById("redArrow").style.display = "block"
-        document.getElementById("blueArrow").style.display = "none"
-    } else if (turn == "blue") {
+    if (turn == "red") {
+        turn = "blue"
         document.getElementById("blueArrow").style.display = "block"
         document.getElementById("redArrow").style.display = "none"
+    } else {
+        turn = "red"
+        document.getElementById("redArrow").style.display = "block"
+        document.getElementById("blueArrow").style.display = "none"
     }
 }
 async function countdown() {
     currentCountdown = turn
+    penalty = 0
+    await sleep(1500)
     while (gameEnd == false) {
         if (currentCountdown != turn) {
             await sleep(1500)
             currentCountdown = turn
-
+            penalty = 0
         }
+        if (redTimer.innerHTML == "0" || redTimer.innerHTML == "0") {
+            gameEnd = true
+            return
+        }
+        if(penalty > 30) {
+            if (turn == "red" && currentCountdown == "red") {
+                bluePoints.innerHTML = 999
+            } else if (turn == "blue" && currentCountdown == "blue") {
+                redPoints.innerHTML = 999
+            }  
+            gameEnd = true
+        } else if (penalty > 20) {
+            if (turn == "red" && currentCountdown == "red") {
+                redPoints.innerHTML--
+            } else if (turn == "blue" && currentCountdown == "blue") {
+                bluePoints.innerHTML--
+            }  
+        }
+        penalty++
         if (turn == "red" && currentCountdown == "red") {
             redTimer.innerHTML--
             await sleep(1000)
         } else if (turn == "blue" && currentCountdown == "blue") {
             blueTimer.innerHTML--
             await sleep(1000)
-        }   
-
+        }  
     }
     return
 }
 
 const redTimer = document.getElementById("redTimer")
 const blueTimer = document.getElementById("blueTimer")
+const redPoints = document.getElementById("redPoints")
+const bluePoints = document.getElementById("bluePoints")
 
 var redWords = []
 var blueWords = []
+const redWordsDisplay = document.getElementById("redWords")
+const WordsDisplay = document.getElementById("blueWords")
 
-
+function listToStr(listInput) {
+    let x = listInput.toString().replaceAll(",", "<br>"); return x
+}
 function setDisplay(className, Value) {
     var objects = document.getElementsByClassName(className);
     for (var i=0; i < objects.length; i++) {
@@ -68,10 +96,16 @@ function randNum(min, max) {
     let x = Math.floor((max-min+1) * Math.random() + min); return x 
 }
 function generateLetters() {
-    letterList = allLetters
+    makeLetters()
     for(var i = 0; i < 26 - maxLetters; i++) {
         letterList.splice(randNum(0, letterList.length-1), 1)
     }
+}
+async function playAnim(id, anim) {
+    element = document.getElementById(id)
+    element.style.animation = "none"
+    void element.offsetWidth;
+    element.style.animation = anim + " 500ms"
 }
 async function game() {
     document.getElementById('setup').style.display = "none";
@@ -94,6 +128,8 @@ async function game() {
     } else {
         turn = "blue"
     }
+    countdown()
+    document.getElementById(turn+"Arrow").style.display = "block"
     vowelCount = 0
     letterList = []
     maxLetters = document.getElementById("letterCount").value
@@ -106,11 +142,7 @@ async function game() {
                 vowelCount++
             }
         }
-        console.log(letterList)
-        await sleep(50)
-
-
     }
-//make allLetters and letterList the same thing; restate it every time with makeLetters()
     setDisplay("gameObjects", "block")
+    document.getElementById("letters").innerHTML = letterList.toString().replaceAll(",", ", ")
 }

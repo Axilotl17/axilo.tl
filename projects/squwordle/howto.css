@@ -37,12 +37,16 @@ label {
 }
 input{
     position: absolute;
+    top: 300px;
     left: 50%;
-    transform: translate(-50%, 10%);
+    transform: translate(-50%, -50%);
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     padding: 5px 10px;
     font-size: 18px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: gray;
   }
 #back {
     position:absolute;
@@ -51,4 +55,73 @@ input{
     width: 80px;
     height: 80px;
     cursor: pointer;
+}
+@keyframes wrong {
+    0%  {
+        border-width: 2px;
+        border-style: solid;
+        border-color: gray;
+        left: 50%;
+        top: 300px;
+    }
+    25% {
+        border-width: 4px;
+        border-style: solid;
+        border-color: red;
+        left: calc(50% + 5px);
+        }
+    50% {
+        border-width: 4px;
+        border-style: solid;
+        border-color: red;
+        left: calc(50% - 5px);
+        }
+    75% {
+        border-width: 4px;
+        border-style: solid;
+        border-color: red;
+        left: calc(50% + 5px);
+        }
+    100% {
+        border-width: 2px;
+        border-style: solid;
+        border-color: gray;
+        left: 50%;
+        top: 300px;
+        }
+}
+    @keyframes right {
+    0%  {
+        border-width: 2px;
+        border-style: solid;
+        border-color: gray;
+        left: 50%;
+        top: 300px;
+    }
+    25% {
+        border-width: 4px;
+        border-style: solid;
+        border-color: lightgreen;
+        top: 303px;
+        }
+    50% {
+        border-width: 4px;
+        border-style: solid;
+        border-color: lightgreen;
+        top: 297px;
+        }
+    75% {
+        border-width: 4px;
+        border-style: solid;
+        border-color: lightgreen;
+        top: 303px;
+        }
+    100% {
+        border-width: 2px;
+        border-style: solid;
+        border-color: gray;
+        left: 50%;
+        top: 300px;
+        }
+
 }

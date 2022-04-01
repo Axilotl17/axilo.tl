@@ -7,6 +7,12 @@ var letters = [
     "f",
     "g"
 ]
+async function playAnim(id, anim) {
+    element = document.getElementById(id)
+    element.style.animation = "none"
+    void element.offsetWidth;
+    element.style.animation = anim + " 500ms"
+}
 function isInputWord() {
     demoInput = document.getElementById("demoInput");
     demoLabel = document.getElementById("demoLabel");
@@ -21,13 +27,16 @@ function isInputWord() {
             if (rightLetters) {
                 demoLabel.innerHTML = "Congrats, that word works!"
                 demoLabel.style.color = "green"
+                playAnim("demoInput", "right")
             } else {
                 demoLabel.innerHTML = "Uh oh, you can't use some of those letters!"
                 demoLabel.style.color = "red"
+                playAnim("demoInput", "wrong")
             }
         } else {
             demoLabel.innerHTML = "Not a real word!"
             demoLabel.style.color = "red"
+            playAnim("demoInput", "wrong")
         }
     });
 }

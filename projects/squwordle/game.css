@@ -114,10 +114,99 @@ label.setupLabel {
 }
 #wordInput {
     position: absolute;
-    transform: translate(-50%, 0%);
-    top: 50%;
+    transform: translate(-50%, -50%);
+    top: calc(50% + 15px);
     left: 50%;
     font-size: 30px;
     text-align: center;
     display: none;
+    border-width: 2px;
+    border-style: solid;
+    border-color: gray;
+
+}
+#letters {
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    transform: translate(-50%, 0%);
+    top: calc(50% - 80px);
+    left: 50%;
+    font-size: 30px;
+    text-align: center;
+    display: none;
+}
+@keyframes wrong {
+    0%  {
+        transform: translate(-50%, -50%);
+        border-width: 2px;
+        border-style: solid;
+        border-color: gray;
+        left: 50%;
+        top: calc(50% + 15px);
+    }
+    25% {
+        transform: translate(-50%, -50%);
+        border-width: 4px;
+        border-style: solid;
+        border-color: red;
+        left: calc(50% + 5px);
+        }
+    50% {
+        transform: translate(-50%, -50%);
+        border-width: 4px;
+        border-style: solid;
+        border-color: red;
+        left: calc(50% - 5px);
+        }
+    75% {
+        transform: translate(-50%, -50%);
+        border-width: 4px;
+        border-style: solid;
+        border-color: red;
+        left: calc(50% + 5px);
+        }
+    100% {
+        transform: translate(-50%, -50%);
+        border-width: 2px;
+        border-style: solid;
+        border-color: gray;
+        left: 50%;
+        top: calc(50% + 15px);
+        }
+}
+    @keyframes right {
+    0%  {
+        border-width: 2px;
+        border-style: solid;
+        border-color: gray;
+        left: 50%;
+        top: calc(50% + 15px);
+    }
+    25% {
+        border-width: 4px;
+        border-style: solid;
+        border-color: lightgreen;
+        top: calc(50% + 18px);
+        }
+    50% {
+        border-width: 4px;
+        border-style: solid;
+        border-color: lightgreen;
+        top: calc(50% + 12px);
+        }
+    75% {
+        border-width: 4px;
+        border-style: solid;
+        border-color: lightgreen;
+        top: calc(50% + 18px);
+        }
+    100% {
+        border-width: 2px;
+        border-style: solid;
+        border-color: gray;
+        left: 50%;
+        top: calc(50% + 15px);
+        }
+
 }
