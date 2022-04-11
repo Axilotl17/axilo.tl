@@ -72,16 +72,20 @@ async function countdown() {
     }
     return
 }
-
+const wordInput = document.getElementById("wordInput")
+const redWordsDisplay = document.getElementById("redWords")
+const blueWordsDisplay = document.getElementById("blueWords")
 const redTimer = document.getElementById("redTimer")
 const blueTimer = document.getElementById("blueTimer")
 const redPoints = document.getElementById("redPoints")
 const bluePoints = document.getElementById("bluePoints")
+var redScore = 0
+var blueScore = 0
+
 
 var redWords = []
 var blueWords = []
-const redWordsDisplay = document.getElementById("redWords")
-const WordsDisplay = document.getElementById("blueWords")
+
 
 function listToStr(listInput) {
     let x = listInput.toString().replaceAll(",", "<br>"); return x
@@ -143,9 +147,22 @@ async function game() {
             }
         }
     }
-    demoInput.addEventListener("change", function (e) {
-        e.target.value
-    });
     setDisplay("gameObjects", "block")
     document.getElementById("letters").innerHTML = letterList.toString().replaceAll(",", ", ")
+    wordInput.addEventListener("change", function (e) {
+        evalWord = true
+        evalLetters = true
+        evalUsed = true
+        inputWord = e.target.value
+        if (!isWord(inputWord)){
+            evalWord = false
+        }
+        for(var i = 0; i < inputWord.length - 1; i++) {
+            if(!letterList.includes(inputWord.charAt(i).toUppercase())) {
+                evalWord = false
+            }
+        }
+        //if(redWords.includes())
+        //check if words has been used w/ evalUsed
+    });
 }
