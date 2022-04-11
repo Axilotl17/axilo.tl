@@ -143,6 +143,9 @@ async function game() {
             }
         }
     }
+    demoInput.addEventListener("change", function (e) {
+        e.target.value
+    });
     setDisplay("gameObjects", "block")
     document.getElementById("letters").innerHTML = letterList.toString().replaceAll(",", ", ")
 }
