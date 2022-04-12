@@ -48,11 +48,7 @@ async function countdown() {
             return
         }
         if(penalty > 30) {
-            if (turn == "red" && currentCountdown == "red") {
-                bluePoints.innerHTML = 999
-            } else if (turn == "blue" && currentCountdown == "blue") {
-                redPoints.innerHTML = 999
-            }  
+            eval(turn + "Points").innerHTML = 999
             gameEnd = true
         } else if (penalty > 20) {
             if (turn == "red" && currentCountdown == "red") {
@@ -69,7 +65,11 @@ async function countdown() {
             blueTimer.innerHTML--
             await sleep(1000)
         }  
+        if (redTimer.innerHTML <= 0 || blueTimer.innerHTML <= 0) {
+            gameEnd = true
+        }
     }
+    endGame()
     return
 }
 const wordInput = document.getElementById("wordInput")
@@ -105,6 +105,29 @@ function generateLetters() {
         letterList.splice(randNum(0, letterList.length-1), 1)
     }
 }
+function endGame() {
+    if (redScore > blueScore) {
+        document.getElementById("blueArrow").style.display = "block"
+        document.getElementById("redArrow").style.display = "none"
+        setDisplay("gameObjects", "none")
+        document.getElementById('countdown').style.display = "block"
+        document.getElementById('countdown').innerHTML = "red won!!!"
+        
+    } else if (blueScore < redScore) {
+        document.getElementById("redArrow").style.display = "block"
+        document.getElementById("blueArrow").style.display = "none"
+        setDisplay("gameObjects", "none")
+        document.getElementById('countdown').style.display = "block"
+        document.getElementById('countdown').innerHTML = "blue won!!!"
+    } else {
+        setDisplay("gameObjects", "none")
+        document.getElementById("redArrow").style.display = "none"
+        document.getElementById("blueArrow").style.display = "none"
+        document.getElementById('countdown').style.display = "block"
+        document.getElementById('countdown').innerHTML = defWin + " won!!!"
+    }
+
+}
 async function playAnim(id, anim) {
     element = document.getElementById(id)
     element.style.animation = "none"
@@ -129,8 +152,10 @@ async function game() {
     }
     if(Math.random() > 0.5){
         turn = "red"
+        defWin = "blue"
     } else {
         turn = "blue"
+        defWin = "red"
     }
     countdown()
     document.getElementById(turn+"Arrow").style.display = "block"
@@ -149,20 +174,39 @@ async function game() {
     }
     setDisplay("gameObjects", "block")
     document.getElementById("letters").innerHTML = letterList.toString().replaceAll(",", ", ")
-    wordInput.addEventListener("change", function (e) {
-        evalWord = true
-        evalLetters = true
-        evalUsed = true
-        inputWord = e.target.value
-        if (!isWord(inputWord)){
-            evalWord = false
-        }
-        for(var i = 0; i < inputWord.length - 1; i++) {
-            if(!letterList.includes(inputWord.charAt(i).toUppercase())) {
-                evalWord = false
-            }
-        }
-        //if(redWords.includes())
-        //check if words has been used w/ evalUsed
-    });
+    if(gameEnd == true) {
+        return
+    }
 }
+wordInput.addEventListener("change", function (e) {
+    evalWord = true
+    evalLetters = true
+    evalUsed = true
+    inputWord = e.target.value
+    if (!isWord(inputWord)){
+        evalWord = false
+    }
+    for(var i = 0; i < inputWord.length - 1; i++) {
+        if(!letterList.includes(inputWord.charAt(i).toUpperCase())) {
+            evalLetters = false
+        }
+    }
+    if(redWords.includes(inputWord) == true || blueWords.includes(inputWord) == true) {
+        evalUsed = false
+    }
+    console.log("word: " + inputWord + "\nisWord: " + evalWord + "\nrightLetters: " + evalLetters + "\nisNotUsed: " + evalUsed)
+    if(evalWord == true && evalLetters == true && evalUsed == true) {
+        playAnim("wordInput", "right")
+        eval(turn + "Words").push(inputWord)
+        eval(turn + "WordsDisplay").innerHTML = listToStr(eval(turn + "Words"))
+        if (turn == "red") {
+            redScore = redScore + inputWord.length + 2
+        } else if (turn == "blue") {
+            blueScore = blueScore + inputWord.length + 2
+        }
+        eval(turn + "Points").innerHTML = eval(turn + "Score")
+        doTurn()
+    } else {
+        playAnim("wordInput", "wrong")
+    }
+});
