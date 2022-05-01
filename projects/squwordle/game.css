@@ -81,6 +81,24 @@ label.setupLabel {
     cursor:pointer;
     margin: 5px;
 }
+#retry {
+    position: absolute;
+    transform: translate(-50%, 0%);
+    top: 25%;
+    left: 50%;
+    background-color: orange;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 40px;
+    width: 250px;
+    height: 100px;
+    cursor:pointer;
+    margin: 5px;
+    display: none;
+}
 #countdown {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
