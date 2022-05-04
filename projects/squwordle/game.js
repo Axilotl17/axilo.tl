@@ -153,7 +153,6 @@ async function countdown() { // constantly counting down the players timers (alt
     return
 }
 async function game() { // actual game runtime (triggered in HTML document)
-
     makeLetters(document.getElementById("letterCount").value)
     document.getElementById('setup').style.display = "none";
     for (var i = 3; i != 0; i--) {

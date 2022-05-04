@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="index.css">
+    </head>
+    <body>
+        <h1 class="text">Axilotl's number counter</h1>
+        <h3 class="text">Here, we do what you did in 3rd grade, but <em>faster</em>, and with fancy computers.</h3>
+        <div id="inputs">
+            <label for="startFromInput">Start counting from:</label><br>
+            <input type="number" id = "startFromInput" name = "Start counting from"> <br><br>
+            <label for="startFromInput">Character limit:</label><br>
+            <input type="number" id = "limitInput" name = "Charcter limit"> <br>
+            <button onclick = "setLimit(2000)">Discord 2000</button>
+            <button onclick = "setLimit(4000)">Nitro 4000</button> <br> <br>
+            <i id="arrow" class="right"></i>
+            <label for="arrow" id="arrowLabel">extra</label>
+            <div id="dropdown">
+                <input type="checkbox" class="checkbox" id="check69">
+                <label for="check69" class="checkbox" id="label69">bold "69"</label>
+                <input type="checkbox" class="checkbox" id="check420">
+                <label for="check420" class="checkbox" id="label420">bold "420"</label>
+            </div>
+        </div>
+        <button id="generate" onclick = "generate()">Generate!</button> 
+        <div id="outputs">
+            <p class="text" id = clipboardStatus></p>
+            <hr> 
+            <p id = "output"></p>
+        </div>
+    </body>
+    <script src="index.js"></script>
+</html>

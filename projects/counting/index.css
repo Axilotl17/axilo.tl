@@ -1,0 +1,109 @@
+button {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 3px 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 0px;
+    cursor: pointer;
+    width: 100px;
+}
+#generate {
+    font-size: 18px;
+    padding: 15px 32px;
+    width: 250px;
+}
+input {
+    width: 196px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.text {
+    font-family:Arial, Helvetica, sans-serif;
+    transform: translate(-50%, 0%);
+    left: 50%;
+    position: absolute;
+}
+label {
+    font-family:Arial, Helvetica, sans-serif;
+}
+h1 {
+    top: 20px;
+}
+h3 {
+    top: 80px;
+    width: auto;
+}
+#generate {
+    position: absolute;
+    transform: translate(-50%, 0%);
+    left: 50%;
+    top: 400px;
+}
+#inputs {
+    position: absolute;
+    transform: translate(-50%, 0%);
+    left: 50%;
+    top: 160px;
+}
+#outputs {
+    position: absolute;
+    width:100%;
+    top: 500px;
+}
+#dropdown {
+    width: inherit;
+}
+p {
+    top: -30px;
+}
+body {
+    overflow: scroll;
+}
+#check69 {
+    position: absolute;
+    top: calc(100% + 20px);
+    transform: translate(-50%, -25%);
+    left: 5%;
+}
+#check420 {
+    position: absolute;
+    top: calc(100% + 40px);
+    transform: translate(-50%, -25%);
+    left: 5%;
+}
+#label69 {
+    position: absolute;
+    top: calc(100% + 20px);
+    left: 15%;
+}
+#label420 {
+    position: absolute;
+    top: calc(100% + 40px);
+    left: 15%;
+}
+#arrow {
+    top:calc(100% - 5px);
+    position: absolute;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+#arrowLabel {
+    position: absolute;
+    top:calc(100% - 8px);
+    left: 15px;
+}
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
